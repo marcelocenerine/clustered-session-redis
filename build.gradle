@@ -1,0 +1,32 @@
+group 'com.cenerino'
+version '0.0.1-SNAPSHOT'
+
+apply plugin: 'scala'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.0.RELEASE")
+    }
+}
+
+bootRepackage {
+    mainClass = 'com.cenerino.sessionrepl.Application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-web:1.3.0.RELEASE",
+            "org.scala-lang:scala-library:2.11.7"
+}
