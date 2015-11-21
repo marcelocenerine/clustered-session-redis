@@ -1,0 +1,19 @@
+apply plugin: 'docker'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'se.transmode.gradle:gradle-docker:1.2'
+    }
+}
+
+task buildImage(type: Docker) {
+    dockerfile = file('./Dockerfile')
+    tag = 'marcelocenerine/session-repl-web'
+    tagVersion = 'latest'
+//    stageDir = file('.')
+}
+

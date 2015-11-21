@@ -1,2 +1,2 @@
-include 'session-repl-web'
+include 'session-repl-web', 'docker'
 

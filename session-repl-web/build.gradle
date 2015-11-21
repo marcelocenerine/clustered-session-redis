@@ -2,10 +2,7 @@ group 'com.cenerino'
 version '0.0.1-SNAPSHOT'
 
 apply plugin: 'scala'
-apply plugin: 'java'
 apply plugin: 'spring-boot'
-
-sourceCompatibility = 1.8
 
 buildscript {
     project.ext {
