@@ -1,4 +1,6 @@
 apply plugin: 'docker'
+apply plugin: 'java'
+
 
 buildscript {
     repositories {
@@ -10,10 +12,24 @@ buildscript {
     }
 }
 
-task buildImage(type: Docker) {
+dependencies {
+    compile project(':session-repl-web')
+}
+
+configurations {
+    compile { transitive = false }
+}
+
+task copyJar(dependsOn: ':session-repl-web:build', type: Copy) {
+    from configurations.compile.files
+    into "$buildDir/image"
+}
+
+task buildImage(dependsOn: copyJar, type: Docker) {
     dockerfile = file('./Dockerfile')
     tag = 'marcelocenerine/session-repl-web'
     tagVersion = 'latest'
-//    stageDir = file('.')
+    stageDir = file("$buildDir/image")
 }
 
+build.dependsOn buildImage

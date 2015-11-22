@@ -18,6 +18,10 @@ buildscript {
     }
 }
 
+jar {
+    archiveName = 'session-repl-web.jar'
+}
+
 bootRepackage {
     mainClass = 'com.cenerino.sessionrepl.AppBootstrap'
 }
