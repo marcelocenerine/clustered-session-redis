@@ -19,7 +19,7 @@ buildscript {
 }
 
 bootRepackage {
-    mainClass = 'com.cenerino.sessionrepl.Application'
+    mainClass = 'com.cenerino.sessionrepl.AppBootstrap'
 }
 
 repositories {
