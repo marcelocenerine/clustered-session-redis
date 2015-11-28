@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="../img/favicon.ico" th:href="@{img/favicon.ico}"/>
+    <link rel="stylesheet" href="sample-app.css" th:href="@{css/sample-app.css}"/>
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+    <title>Clustered HTTP sessions with Redis</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+    <div class="starter-template">
+        <h2>Attributes in the current session</h2>
+
+
+        <div class="col-md-12" th:unless="${session.isEmpty()}">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="attr : ${session}">
+                    <td th:text="${attr.key}"></td>
+                    <td th:text="${attr.value}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p th:if="${session.isEmpty()}">Nenhum</p>
+
+        <h2>Add attribute</h2>
+
+        <form action="#" th:action="@{/session}" method="post">
+            <fieldset>
+                <div>
+                    <label for="key">Name:</label>
+                    <input id="key" type="text" th:name="key"/>
+                </div>
+                <div>
+                    <label for="value">Value:</label>
+                    <input id="value" type="text" th:name="value"/>
+                </div>
+
+                <div class="submit">
+                    <button type="submit">Submit</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<!-- /.container -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>

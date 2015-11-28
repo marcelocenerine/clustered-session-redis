@@ -23,7 +23,7 @@ jar {
 }
 
 bootRepackage {
-    mainClass = 'com.cenerino.sessionrepl.AppBootstrap'
+    mainClass = 'com.cenerino.sampleapp.AppBootstrap'
 }
 
 repositories {
@@ -33,6 +33,7 @@ repositories {
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-web:${bootVersion}",
             "org.springframework.boot:spring-boot-starter-redis:${bootVersion}",
+            "org.springframework.boot:spring-boot-starter-thymeleaf:${bootVersion}",
             "org.springframework.session:spring-session:1.0.2.RELEASE",
             "org.scala-lang:scala-library:2.11.7"
 }
