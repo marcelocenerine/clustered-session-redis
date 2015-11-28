@@ -19,7 +19,7 @@ buildscript {
 }
 
 jar {
-    archiveName = 'session-repl-web.jar'
+    archiveName = 'sample-app.jar'
 }
 
 bootRepackage {

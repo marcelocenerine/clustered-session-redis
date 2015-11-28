@@ -3,4 +3,4 @@ MAINTAINER Marcelo Cenerino <marcelocenerine@gmail.com>
 
 COPY *.jar /opt/cenerino/
 
-ENTRYPOINT ["java", "-jar", "/opt/cenerino/session-repl-web.jar"]
+ENTRYPOINT ["java", "-jar", "/opt/cenerino/sample-app.jar"]

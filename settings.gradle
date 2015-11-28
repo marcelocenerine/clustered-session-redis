@@ -1,2 +1,2 @@
-include 'session-repl-web', 'docker'
+include 'sample-app', 'docker'
 

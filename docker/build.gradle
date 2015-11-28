@@ -10,14 +10,14 @@ buildscript {
     }
 }
 
-task copyJar(dependsOn: ':session-repl-web:build', type: Copy) { 
-    from tasks.getByPath(':session-repl-web:jar')
+task copyJar(dependsOn: ':sample-app:build', type: Copy) { 
+    from tasks.getByPath(':sample-app:jar')
     into "$buildDir/image"
 }
 
 task buildImage(dependsOn: copyJar, type: Docker) {
     dockerfile = file('./Dockerfile')
-    tag = 'marcelocenerine/session-repl-web'
+    tag = 'marcelocenerine/sample-app'
     tagVersion = 'latest'
     stageDir = file("$buildDir/image")
 }
