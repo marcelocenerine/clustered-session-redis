@@ -1,4 +1,4 @@
-# session-repl-redis-spring
+# clustered-session-redis
 
 ###### Work still in progress...
 
